@@ -9,7 +9,7 @@ public interface IprojetDao {
     List<Projet> getALLProjets();
     List<Projet> getProjetsParMc(String mc);
     Projet ajouterProjet(Projet p);
-    void supprimerProjet(Projet p);
+    void supprimerProjet(int id);
     void modifierProjet(Projet p);
 
 }

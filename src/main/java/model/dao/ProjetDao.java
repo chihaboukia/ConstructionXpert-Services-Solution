@@ -85,7 +85,16 @@ public class ProjetDao implements IprojetDao{
     }
 
     @Override
-    public void supprimerProjet(Projet p) {
+    public void supprimerProjet(int id) {
+        Connection cn = Dbconnexion.getConnection();
+        PreparedStatement ps;
+        try {
+            ps = cn.prepareStatement("DELLETE FROM Project WHERE id_project=?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
