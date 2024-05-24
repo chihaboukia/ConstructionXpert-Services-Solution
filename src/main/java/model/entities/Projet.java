@@ -22,6 +22,9 @@ public class Projet {
         this.budget = budget;
     }
 
+    public Projet(String nom, String description, java.sql.Date dateDebut, java.sql.Date dateFin, double budget) {
+    }
+
     // Getters et setters
 
     public int getId() {
