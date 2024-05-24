@@ -97,9 +97,6 @@ public class ProjetDao implements IprojetDao{
             throw new RuntimeException(e);
         }
 
-
-
-
     }
 
     @Override
