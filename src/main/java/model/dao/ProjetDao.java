@@ -6,6 +6,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class ProjetDao implements IprojetDao{
     @Override
@@ -14,17 +15,17 @@ public class ProjetDao implements IprojetDao{
         PreparedStatement ps;
         List<Projet> listProjects = new ArrayList<Projet>();
         try {
-            ps = cn.prepareStatement("SELECT * FROM Projets ");
+            ps = cn.prepareStatement("SELECT * FROM Project ");
            ResultSet rs = ps.executeQuery();
 
            while (rs.next()) {
                Projet p = new Projet();
-               p.setId(rs.getInt("id"));
+               p.setId(rs.getInt("id_project"));
                p.setNom(rs.getString("nom"));
                p.setDescription(rs.getString("description"));
                p.setBudget(rs.getDouble("budget"));
-               p.getDateDebut();
-               p.getDateFin();
+               p.setDateDebut(rs.getDate("dateDebut"));
+               p.setDateFin(rs.getDate("dateFin"));
                listProjects.add(p);
            }
         } catch (SQLException e) {
@@ -49,8 +50,8 @@ public class ProjetDao implements IprojetDao{
                 p.setNom(rs.getString("nom"));
                 p.setDescription(rs.getString("description"));
                 p.setBudget(rs.getDouble("budget"));
-                p.getDateDebut();
-                p.getDateFin();
+                p.setDateDebut(rs.getDate("dateDebut"));
+                p.setDateFin(rs.getDate("dateFin"));
                 listProjects.add(p);
             }
         } catch (SQLException e) {

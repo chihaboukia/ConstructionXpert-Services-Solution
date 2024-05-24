@@ -1,24 +1,26 @@
 package model.dao;
 
 import model.entities.Projet;
-
-import java.util.Date;
+import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        Projet projet = new Projet();
-        projet.setNom("ENAA");
-        projet.setDescription("Description");
-        projet.setDateDebut(new java.util.Date()); // assuming you want to use current date for start
-        projet.setDateFin(new java.util.Date(System.currentTimeMillis() + 86400000L)); // 1 day later
-        projet.setBudget(90000.00);
+        ProjetDao projectDao = new ProjetDao();
+        List<Projet> project = projectDao.getALLProjets();
 
-        ProjetDao projetDao = new ProjetDao();
-        try {
-            projetDao.ajouterProjet(projet);
-            System.out.println("Project saved successfully!");
-        } catch (RuntimeException e) {
-            System.out.println("Failed to save the project: " + e.getMessage());
+        if (project.isEmpty()) {
+            System.out.println("No projects found.");
+        } else {
+            System.out.println("List of Projects:");
+            for (Projet projects : project) {
+                System.out.println("id_projet: " + projects.getId());
+                System.out.println("nom: " + projects.getNom());
+                System.out.println("Description: " + projects.getDescription());
+                System.out.println("Start Date: " + projects.getDateDebut());
+                System.out.println("End Date: " + projects.getDateFin());
+                System.out.println("Budget: " + projects.getBudget());
+                System.out.println("---------------------------");
+            }
         }
     }
 }
