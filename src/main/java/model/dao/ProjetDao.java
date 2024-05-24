@@ -6,7 +6,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
+import java.sql.Date;
 
 public class ProjetDao implements IprojetDao{
     @Override
@@ -66,7 +66,7 @@ public class ProjetDao implements IprojetDao{
         Connection cn = Dbconnexion.getConnection();
         PreparedStatement ps;
         try {
-            ps = cn.prepareStatement("INSERT INTO project (nom,description,dateDebut,dateFin,budget)VALUES(?,?,?,?,?)");
+            ps = cn.prepareStatement("INSERT INTO project (nom,description,datedebut,datefin,budget)VALUES(?,?,?,?,?)");
             ps.setString(1, p.getNom());
             ps.setString(2, p.getDescription());
 

@@ -11,11 +11,12 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="container mt-5">
+    <!-- Add Project link -->
+    <a href="${pageContext.request.contextPath}/projects?action=addForm" class="btn btn-primary mb-3">Add Project</a>
+
     <h1>Project Information</h1>
-    <form action="addProject.jsp" method="get" class="mb-3">
-        <button type="submit" class="btn btn-primary">Add Project</button>
-    </form>
 
     <%
         List<Projet> listProjects = (List<Projet>) request.getAttribute("listProjects");
@@ -66,5 +67,4 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+</body>re
